@@ -1,5 +1,6 @@
 package com.teratail.q_5hlzx1yc8gce17;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.*;
 import android.widget.*;
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     Button scanButton = findViewById(R.id.scan_button);
     CheckBox appendCheck = findViewById(R.id.append_check);
     TextView contentText = findViewById(R.id.content_text);
+    Button shareButton = findViewById(R.id.share_button);
     Spinner contentSpinner = findViewById(R.id.content_spinner);
     Button clearButton = findViewById(R.id.clear_button);
 
@@ -51,6 +53,14 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "throws Exception", Toast.LENGTH_LONG).show();
             e.printStackTrace();
           });
+    });
+
+    shareButton.setOnClickListener(v -> {
+      Intent sendIntent = new Intent();
+      sendIntent.setAction(Intent.ACTION_SEND);
+      sendIntent.putExtra(Intent.EXTRA_TEXT, contentText.getText().toString());
+      sendIntent.setType("text/plain");
+      startActivity(Intent.createChooser(sendIntent, null));
     });
 
     ContentSpinnerAdapter adapter = new ContentSpinnerAdapter();
