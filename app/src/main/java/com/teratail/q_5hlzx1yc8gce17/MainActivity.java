@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
     model.getContent().observe(this, content -> {
       ContentDecoder contentDecoder = model.getContentDecoder().getValue();
+      assert contentDecoder != null;
       contentText.setText(contentDecoder.getText(content));
     });
     model.getContentDecoder().observe(this, contentDecoder -> {
@@ -45,11 +46,9 @@ public class MainActivity extends AppCompatActivity {
             if(!appendCheck.isChecked()) model.clearContent();
             model.addContent(barcode.getRawBytes());
           })
-          .addOnCanceledListener(() -> {
-            Toast.makeText(this, "Canceled", Toast.LENGTH_SHORT);
-          })
+          .addOnCanceledListener(() -> Toast.makeText(this, "Canceled", Toast.LENGTH_SHORT).show())
           .addOnFailureListener(e -> {
-            Toast.makeText(this, "throws Exception", Toast.LENGTH_LONG);
+            Toast.makeText(this, "throws Exception", Toast.LENGTH_LONG).show();
             e.printStackTrace();
           });
     });
@@ -65,9 +64,7 @@ public class MainActivity extends AppCompatActivity {
       public void onNothingSelected(AdapterView<?> parent) { /*nothing*/ }
     });
 
-    clearButton.setOnClickListener(v -> {
-      model.clearContent();
-    });
+    clearButton.setOnClickListener(v -> model.clearContent());
   }
 
   private static class ContentSpinnerAdapter extends BaseAdapter {

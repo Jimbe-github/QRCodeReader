@@ -6,16 +6,12 @@ import java.nio.charset.*;
 
 enum ContentDecoder {
   HEX {
-    String getText(byte[] content) {
+    @NonNull String getText(byte[] content) {
       StringBuilder sb = new StringBuilder();
       int i = 0;
       for(byte b : content) {
-        if(++i > 16) {
-          sb.append("\n");
-          i = 1;
-        }
-        if(b < 16)
-          sb.append('0');
+        if(++i > 16) { sb.append("\n"); i = 1; }
+        if(b < 16) sb.append('0');
         sb.append(Integer.toHexString(b));
       }
       return sb.toString();
@@ -26,7 +22,7 @@ enum ContentDecoder {
     }
   },
   SHIFT_JIS {
-    String getText(byte[] content) {
+    @NonNull String getText(byte[] content) {
       return new String(content, Charset.forName("Shift_JIS"));
     }
 
@@ -35,7 +31,7 @@ enum ContentDecoder {
     }
   },
   UTF_8 {
-    String getText(byte[] content) {
+    @NonNull String getText(byte[] content) {
       return new String(content, StandardCharsets.UTF_8);
     }
 
@@ -44,5 +40,5 @@ enum ContentDecoder {
     }
   };
 
-  abstract String getText(byte[] content);
+  abstract @NonNull String getText(byte[] content);
 }
