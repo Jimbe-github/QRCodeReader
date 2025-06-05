@@ -1,0 +1,8 @@
+<resources>
+  <string name="app_name">QRCodeReader</string>
+
+  <string name="share_button_text">共有</string>
+  <string name="clear_button_text">消去</string>
+  <string name="scan_button_text">取込</string>
+  <string name="append_check_text">追加</string>
+</resources>

@@ -11,7 +11,7 @@
       android:id="@+id/scan_button"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="Scan"
+      android:text="@string/scan_button_text"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent" />
@@ -21,7 +21,7 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginStart="10dp"
-      android:text="Append"
+      android:text="@string/append_check_text"
       app:layout_constraintBottom_toBottomOf="@id/scan_button"
       app:layout_constraintStart_toEndOf="@id/scan_button" />
 
@@ -30,6 +30,7 @@
       android:layout_width="0dp"
       android:layout_height="0dp"
       android:background="#f0f0f0"
+      android:breakStrategy="simple"
       app:layout_constraintBottom_toTopOf="@id/clear_button"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
@@ -39,7 +40,7 @@
       android:id="@+id/share_button"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="Share"
+      android:text="@string/share_button_text"
       app:icon="@android:drawable/ic_menu_share"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintStart_toStartOf="parent" />
@@ -47,7 +48,7 @@
   <Spinner
       android:id="@+id/content_spinner"
       android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
+      android:layout_height="0dp"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toStartOf="@id/clear_button"
       app:layout_constraintStart_toEndOf="@id/share_button"
@@ -57,7 +58,7 @@
       android:id="@+id/clear_button"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="Clear"
+      android:text="@string/clear_button_text"
       app:icon="@android:drawable/ic_menu_delete"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent" />

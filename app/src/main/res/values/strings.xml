@@ -1,3 +1,8 @@
 <resources>
   <string name="app_name">QRCodeReader</string>
+
+  <string name="share_button_text">Share</string>
+  <string name="clear_button_text">Clear</string>
+  <string name="scan_button_text">Scan</string>
+  <string name="append_check_text">Append</string>
 </resources>

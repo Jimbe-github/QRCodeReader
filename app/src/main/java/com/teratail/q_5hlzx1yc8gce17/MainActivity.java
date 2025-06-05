@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
             .build();
     GmsBarcodeScanner barcodeScanner = GmsBarcodeScanning.getClient(this, options);
 
-    scanButton.setOnClickListener(v -> {
+    scanButton.setOnClickListener(v ->
       barcodeScanner.startScan()
           .addOnSuccessListener(barcode -> {
             if(!appendCheck.isChecked()) model.clearContent();
@@ -52,8 +52,8 @@ public class MainActivity extends AppCompatActivity {
           .addOnFailureListener(e -> {
             Toast.makeText(this, "throws Exception", Toast.LENGTH_LONG).show();
             e.printStackTrace();
-          });
-    });
+          })
+    );
 
     shareButton.setOnClickListener(v -> {
       Intent sendIntent = new Intent();
